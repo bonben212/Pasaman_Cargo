@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nagari Express</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #007bff; color: white; padding: 20px; text-align: center; }
+    main { padding: 20px; }
+    form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    input, textarea, button, select { display: block; margin: 10px 0; width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    button { background: #007bff; color: white; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    footer { background: #333; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jasa Antar Jemput Barang Pasaman Barat Nagari Express</h1>
+    <p>Murah, Cepat, dan Terpercaya</p>
+  </header>
+  <main>
+    <h2>Pesan Layanan Antar Jemput</h2>
+    <form id="orderForm">
+      <input type="text" id="nama" placeholder="Nama Anda" required>
+      <input type="tel" id="nomorPemesan" placeholder="Nomor Telepon Anda" pattern="[0-9]{10,15}" required>
+      <input type="text" id="alamat" placeholder="Alamat Penjemputan" required>
+      <input type="text" id="tujuan" placeholder="Alamat Tujuan" required>
+      <textarea id="deskripsi" placeholder="Deskripsi Barang" required></textarea>
+      <button type="button" onclick="submitOrder()">Pesan Sekarang</button>
+    </form>
+  </main>
+  <footer>
+    <p>© 2025 Nagari Express</p>
+  </footer>
+
+  <script>
+    function submitOrder() {
+      const nama = document.getElementById('nama').value;
+      const nomorPemesan = document.getElementById('nomorPemesan').value;
+      const alamat = document.getElementById('alamat').value;
+      const tujuan = document.getElementById('tujuan').value;
+      const deskripsi = document.getElementById('deskripsi').value;
+
+      if (nama && nomorPemesan && alamat && tujuan && deskripsi) {
+        const whatsappUrl = `https://wa.me/6288742903458?text=Halo, saya ingin memesan jasa antar jemput barang. Berikut detailnya:%0A%0A*Nama*: ${nama}%0A*Nomor Telepon*: ${nomorPemesan}%0A*Alamat Penjemputan*: ${alamat}%0A*Alamat Tujuan*: ${tujuan}%0A*Deskripsi Barang*: ${deskripsi}`;
+        window.open(whatsappUrl, '_blank');
+        alert('Pesanan Anda telah dikirim melalui WhatsApp.');
+      } else {
+        alert('Harap isi semua kolom!');
+      }
+    }
+  </script>
+</body>
+</html>
